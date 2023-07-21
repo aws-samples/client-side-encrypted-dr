@@ -1,0 +1,22 @@
+{
+    "name": "generic-restore-from-s3",
+    "main": "generic-restore-from-s3.ts",
+    "exports": {
+      ".": [
+        {
+          "import": "./generic-restore-from-s3.ts",
+          "require": "./generic-restore-from-s3.ts",
+          "default": "./generic-restore-from-s3.ts"
+        },
+        "./generic-restore-from-s3.ts"
+      ],
+      "./package.json": "./package.json"
+    },
+    "version": "0.0.1",
+    "dependencies": {
+        "aws-cdk-lib": "^2.78.0",
+        "constructs": "^10.2.20",
+        "source-map-support": "^0.5.21"
+    }
+  }
+  

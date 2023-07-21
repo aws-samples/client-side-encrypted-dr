@@ -1,0 +1,22 @@
+{
+    "name": "mysql-restore-from-s3",
+    "main": "mysql-restore-from-s3.ts",
+    "exports": {
+      ".": [
+        {
+          "import": "./mysql-restore-from-s3.ts",
+          "require": "./mysql-restore-from-s3.ts",
+          "default": "./mysql-restore-from-s3.ts"
+        },
+        "./mysql-restore-from-s3.ts"
+      ],
+      "./package.json": "./package.json"
+    },
+    "version": "0.0.1",
+    "dependencies": {
+        "aws-cdk-lib": "^2.78.0",
+        "constructs": "^10.2.21",
+        "source-map-support": "^0.5.21"
+    }
+  }
+  

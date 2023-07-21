@@ -1,0 +1,22 @@
+{
+    "name": "opensearch-restore-from-s3",
+    "main": "opensearch-restore-from-s3.ts",
+    "exports": {
+      ".": [
+        {
+          "import": "./opensearch-restore-from-s3.ts",
+          "require": "./opensearch-restore-from-s3.ts",
+          "default": "./opensearch-restore-from-s3.ts"
+        },
+        "./opensearch-restore-from-s3.ts"
+      ],
+      "./package.json": "./package.json"
+    },
+    "version": "0.0.1",
+    "dependencies": {
+        "aws-cdk-lib": "^2.20.0",
+        "constructs": "^10.2.20",
+        "source-map-support": "^0.5.21"
+    }
+  }
+  
