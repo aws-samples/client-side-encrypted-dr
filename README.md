@@ -4,15 +4,14 @@ Welcome to the AWS Disaster Recovery Samples repository! This repository aims to
 
 ## Why was this created?
 
-Certain data protection regulations might restrict you utilizing the cloud for disaster recovery (DR). To overcome these restrictions and meet regulatory requirements, you can 
+To meet regulatory requirements when planning your cloud backups, you can
 - client-side encrypt your backups before storing them to the cloud
 - store the backups in an encrypted state only at AWS
 - decrypt the backups only in case of a disaster, manually transfering the key to AWS
 
 We have created this repository to showcase CDK constructs and example stacks that demonstrate how to automate this process.
 
-### GDPR Compliance
-The ["Recommendations on measures that supplement transfer tools to ensure compliance with the EU level of protection of personal data"](https://edpb.europa.eu/sites/default/files/consultation/edpb_recommendations_202001_supplementarymeasurestransferstools_en.pdf) from the European Data Protection Board describe a "Use Case 1: Data storage for backup and other purposes that do not require access to data in the clear". If all conditions mentioned in this use-case apply, they consider "that the encryption performed provides an effective supplementary measure"
+The ["Recommendations on measures that supplement transfer tools to ensure compliance with the EU level of protection of personal data"](https://edpb.europa.eu/sites/default/files/consultation/edpb_recommendations_202001_supplementarymeasurestransferstools_en.pdf) from the European Data Protection Board (the EDPB) describe a "Use Case 1: Data storage for backup and other purposes that do not require access to data in the clear". If all conditions mentioned in this use-case apply, EDPB considers "that the encryption performed provides an effective supplementary measure"
 
 ## Work in Progress
 We are continuously working on expanding this repository to provide even more valuable constructs and examples for disaster recovery configurations. Our goal is to ensure that customers have access to a comprehensive set of tools and resources to address their specific needs

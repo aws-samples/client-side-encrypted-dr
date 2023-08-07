@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Timeout - allows you to specify a maximum time for restore process
+timeout_value=6000  # Change this to the desired number of seconds. Default 1 hour
+
 # Start timing
 start=$(date +%s.%N)
 
@@ -42,7 +45,7 @@ awscurl --profile temp --service es --region $REGION -XPUT "$DOMAIN_ENDPOINT/_sn
             "bucket": "'$DEST_BUCKET'",
             "readonly": true,
             "base_path": "'$DEST_KEY'",
-            "region": "eu-central-1",
+            "region": "'$REGION'",
             "role_arn":"'$SNAPSHOT_ROLE'"
         }
 }'
@@ -58,13 +61,18 @@ awscurl --profile temp --service es --region $REGION -XPOST "$DOMAIN_ENDPOINT/_s
 # Wait for restore to complete
 while : ; do
     output=$(awscurl --profile temp --service es --region $REGION -XGET "$DOMAIN_ENDPOINT/_cat/recovery")
-    echo $output
+    echo "$output"
     if [[ $output == *"done"* ]]; then
         echo "Restore completed."
         break
     fi
     sleep 10
-done
+done &  # Run the loop in the background
+
+# Wait for the loop to complete or be interrupted by the timeout
+if ! timeout "$timeout_value" bash -c "wait $!"; then
+    echo "Timeout reached. Restore did not complete within $timeout_value seconds."
+fi
 
 echo "Snapshot restore complete!"
 
